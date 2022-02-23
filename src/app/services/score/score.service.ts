@@ -94,6 +94,7 @@ export class ScoreService {
 
     //Fake
     let array: Array<Score> = new Array<Score>();
+    /*
     array.push(new Score(Difficulty.Easy, new TimeSpan(new Date(2022, 1, 10, 10, 40, 0), new Date(2022, 1, 10, 10, 40, 10))));
     array.push(new Score(Difficulty.Easy, new TimeSpan(new Date(2022, 1, 10, 10, 40, 0), new Date(2022, 1, 10, 10, 40, 20))));
     array.push(new Score(Difficulty.Easy, new TimeSpan(new Date(2022, 1, 10, 10, 40, 0), new Date(2022, 1, 10, 10, 40, 30))));
@@ -111,7 +112,9 @@ export class ScoreService {
     array.push(new Score(Difficulty.Hard, new TimeSpan(new Date(2022, 1, 10, 10, 40, 0), new Date(2022, 1, 10, 10, 50, 33))));
     array.push(new Score(Difficulty.Hard, new TimeSpan(new Date(2022, 1, 10, 10, 40, 0), new Date(2022, 1, 10, 10, 59, 5))));
     array.push(new Score(Difficulty.Hard, new TimeSpan(new Date(2022, 1, 10, 10, 40, 0), new Date(2022, 1, 10, 11, 5, 58))));
+    
     this.scores = array;
+    */
 
     return;
     let json = localStorage.getItem(this.name) || '[]';
