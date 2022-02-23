@@ -1,0 +1,21 @@
+h2{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.button {
+    text-align: center;
+    font-size: x-large;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    background-color: lightblue;
+
+    &:hover{
+        box-shadow: red 4px 4px 30px;
+    }
+}

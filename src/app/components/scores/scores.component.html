@@ -1,0 +1,38 @@
+<div class="scores">
+    <div class="scores-titles row">
+        <div class="col-4">
+            <p class="title">Scores on Easy</p>
+        </div>
+        <div class="col-4">
+            <p class="title">Scores on Medium</p>
+        </div>
+        <div class="col-4">
+            <p class="title">Scores on Hard</p>
+        </div>
+    </div>
+    <div class="scores-values row">
+        <div class="scores-easy col-4">
+            <div class="score col" *ngFor="let score of easyScores;let index=index;">
+                <p>{{index+1}} : {{score.timeSpan.toString()}} <img src="assets/pictures/trophee.png"
+                        *ngIf="index==0"></p>
+
+            </div>
+        </div>
+        <div class=" scores-medium col-4">
+            <div class="score col" *ngFor="let score of mediumScores;let index=index;">
+                <p>{{index+1}} : {{score.timeSpan.toString()}} <img src="assets/pictures/trophee.png"
+                        *ngIf="index==0"></p>
+            </div>
+        </div>
+        <div class="scores-hard col-4">
+            <div class="score col" *ngFor="let score of hardScores;let index=index;">
+                <p>{{index+1}} : {{score.timeSpan.toString()}} <img src="assets/pictures/trophee.png"
+                        *ngIf="index==0"></p>
+            </div>
+        </div>
+
+    </div>
+    <div class="scores-bottom">
+        <button (click)="reset()" class="btn btn-danger">Reset scores</button>
+    </div>
+</div>

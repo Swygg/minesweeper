@@ -1,0 +1,58 @@
+<div class="game-state">
+    <h2>State game</h2>
+    <p>State game : {{ stateGame[game.stateGame]}}<br />
+        Nb mines : {{game.nbMines}}<br />
+        Nb flags : {{game.nbFlags}}<br />
+        <span *ngIf="game.stateGame == stateGame.Win">
+            Time :
+            {{game.timespan?.Hours | number : '2.0'}}:
+            {{game.timespan?.Minutes | number : '2.0'}}:
+            {{game.timespan?.Seconds | number : '2.0'}}</span>
+    </p>
+    <p *ngIf="error" class="alert alert-danger">{{error}}</p>
+    <button (click)="restart()" class="btn btn-primary">New game !</button><br />
+    <!--<button (click)="cheat()" class="btn btn-primary">Click to win :D</button>-->
+</div>
+<div class="game row d-flex justify-content-center"
+    (click)="cancelRightClick($event)">
+    <div *ngIf="game" class="col-auto">
+        <div *ngFor="let row of game.board;let x=index;">
+            <span class="fake-img" *ngFor="let col of row;let y=index;" (contextmenu)="flag($event, x,y)"
+                (click)="dig(x,y)">
+                <img class="tile" *ngIf="game.board[x][y].tileType === tileType.MineDiscovered"
+                    src="assets/pictures/MineDiscovered.png">
+                <img class="tile"
+                    *ngIf="game.board[x][y].tileType === tileType.MineFlag && game.stateGame == stateGame.Playing"
+                    src="assets/pictures/VoidFlag.png">
+                <img class="tile"
+                    *ngIf="game.board[x][y].tileType === tileType.MineFlag  && game.stateGame != stateGame.Playing"
+                    src="assets/pictures/VoidFlag.png">
+                <img class="tile"
+                    *ngIf="game.board[x][y].tileType === tileType.MineHidden  && game.stateGame == stateGame.Playing"
+                    src="assets/pictures/VoidHidden.png">
+                <img class="tile"
+                    *ngIf="game.board[x][y].tileType === tileType.MineHidden  && game.stateGame != stateGame.Playing"
+                    src="assets/pictures/MineHidden.png">
+                <img class="tile"
+                    *ngIf="game.board[x][y].tileType === tileType.VoidFlag  && game.stateGame == stateGame.Playing"
+                    src="assets/pictures/VoidFlag.png">
+                <img class="tile"
+                    *ngIf="game.board[x][y].tileType === tileType.VoidFlag  && game.stateGame != stateGame.Playing"
+                    src="assets/pictures/MineFlag.png">
+                <img class="tile" *ngIf="game.board[x][y].tileType === tileType.VoidHidden"
+                    src="assets/pictures/VoidHidden.png">
+                <div class="tile" *ngIf="game.board[x][y].tileType === tileType.VoidDiscovered"
+                    [class.nb-mines-not-visible]="game.board[x][y].nbMinesAround==0">
+                    {{game.board[x][y].nbMinesAround}}</div>
+            </span>
+            <br />
+        </div>
+    </div>
+    <div *ngIf="game && game.stateGame != stateGame.Playing" class="col-3 scores">
+        <app-scores-list [difficulty]="game.getDifficulty()"></app-scores-list>
+    </div>
+    <div *ngIf="!game">
+        <p>Le jeu n'a pas été généré</p>
+    </div>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="scores">
+    <div class="scores-titles row">
+        <div class="col">
+            <p class="title">Scores on Easy</p>
+        </div>
+    </div>
+    <div class="scores-values row">
+        <div class="scores col">
+            <div class="score col" *ngFor="let score of scores;let index=index;">
+                <p>{{index+1}} : {{score.timeSpan.toString()}} <img src="assets/pictures/trophee.png"
+                        *ngIf="index==0"></p>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+@media (max-width: 320px) {
+    .tile {
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        margin: 1px;
+    }
+}
+@media (min-width: 321px) and (max-width: 680px) {
+    .tile {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        margin: 1px;
+    }
+}
+@media (min-width: 680px) and (max-width: 1280px) {
+    .tile {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin: 3px;
+    }
+}
+@media (min-width: 1281px) {
+    .tile {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin: 3px;
+    }
+}
+
+.nb-mines-not-visible {
+    color: white;
+}
+
+$var1: 5px;
+$var2: 1px;
+$width: 3px;
+
+.tile {
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    &:hover {
+        box-shadow: red $width $width $var1 $var2, red $width $width * -1 $var1 $var2, red $width * -1 $width $var1 $var2, red  $width * -1 $width * -1 $var1 $var2;
+    }
+}
+
+.game-state {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.game {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: beige;
+}
